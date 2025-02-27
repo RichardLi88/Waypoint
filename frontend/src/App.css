@@ -1,0 +1,7 @@
+body {
+  padding: 3em 4em;
+}
+
+.newline-text {
+  white-space: pre-line;
+}
