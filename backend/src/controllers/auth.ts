@@ -5,14 +5,16 @@ import { User, Session } from "../types/dbTypes.js";
 import { Request, Response } from "express";
 import db from "../db.js";
 
+  
 export const handleLogin = async (req: Request, res: Response) => {
   const { username, password } = req.body;
 
   if (!username || !password) {
     return res.status(401).send("Username and password required");
   }
-
+//gets mondoDB users
   const userCollection = db.collection("users");
+//checks to see if user is stored in db
   const foundUser = (await userCollection.findOne({
     username: username,
   })) as User | null;
@@ -20,9 +22,9 @@ export const handleLogin = async (req: Request, res: Response) => {
   if (!foundUser) {
     return res.status(401).send("Invalid username or password");
   }
-
+//use bcrypt to dehash password and authenticate
   const passCheck = await bcrypt.compare(password, foundUser.password);
-
+//  s
   if (passCheck) {
     const accessToken = jwt.sign(
       { user: foundUser.username, role: foundUser.role },

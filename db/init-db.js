@@ -1,3 +1,5 @@
+//initates the database
+
 use("waypoint");
 
 db.createUser({

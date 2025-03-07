@@ -1,3 +1,5 @@
+// This file creates and inserts some dummy data 
+
 use("waypoint");
 
 const users = [

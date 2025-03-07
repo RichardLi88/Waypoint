@@ -29,7 +29,7 @@ export default function AdminPanel() {
   const hideNav = () => {
     setShowNav(false);
   };
-
+//on first render fetches from backend to set user data
   useEffect(() => {
     const fetchUsers = async () => {
       try {

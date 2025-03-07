@@ -1,3 +1,4 @@
+//This file defines the types for typeScript. 
 type Priority = "low" | "medium" | "high" | "critical";
 type UserRole = "admin" | "developer";
 type TaskStatus = "completed" | "in_progress" | "not_started";
